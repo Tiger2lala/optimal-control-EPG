@@ -132,12 +132,12 @@ hold on;plot(abs(sum(TARGET,2)/Ns),'bo','LineWidth',2);
 
 subplot(5,3,3);
 plot(180/pi*alpha_opt2.','LineWidth',2);ylim([0 180*max_a]);
-title('Default OPTIMIZED \alpha');
+title('Exc OPTIMIZED \alpha');
 subplot(5,3,6);
 plot(180/pi*phi_opt2.','LineWidth',2);ylim([-180 180]);
-title('Default OPTIMIZED \phi');
+title('Exc OPTIMIZED \phi');
 subplot(5,3,9);
-plot(squeeze(abs((FF2(2,:,:)+1i*FF2(N+2,:,:)))),'LineWidth',.5);title('default OPTIMIZED SIGNAL');xlim([1 Nt+1]);grid on;
+plot(squeeze(abs((FF2(2,:,:)+1i*FF2(N+2,:,:)))),'LineWidth',.5);title('Exc OPTIMIZED SIGNAL');xlim([1 Nt+1]);grid on;
 hold on;plot(abs(sum(TARGET,2)/Ns),'bo','LineWidth',2);
 
 
@@ -146,13 +146,13 @@ imagesc(abs(squeeze(FF(2,:,:)+1i*FF(N+2,:,:))).');title('STARTING SIGNAL');grid 
 subplot(5,3,11);
 imagesc(abs(squeeze(FF1(2,:,:)+1i*FF1(N+2,:,:))).');title('OPTIMIZED SIGNAL');grid on;ylabel('voxels')
 subplot(5,3,12);
-imagesc(abs(squeeze(FF2(2,:,:)+1i*FF2(N+2,:,:))).');title('OPTIMIZED SIGNAL');grid on;ylabel('voxels')
+imagesc(abs(squeeze(FF2(2,:,:)+1i*FF2(N+2,:,:))).');title('EXC OPTIMIZED SIGNAL');grid on;ylabel('voxels')
 subplot(5,3,13);
 imagesc(angle(squeeze(FF(2,:,:)+1i*FF(N+2,:,:))).');title('STARTING SIGNAL');grid on;ylabel('voxels')
 subplot(5,3,14);
 imagesc(angle(squeeze(FF1(2,:,:)+1i*FF1(N+2,:,:))).');title('OPTIMIZED SIGNAL');grid on;ylabel('voxels')
 subplot(5,3,15);
-imagesc(angle(squeeze(FF2(2,:,:)+1i*FF2(N+2,:,:))).');title('OPTIMIZED SIGNAL');grid on;ylabel('voxels')
+imagesc(angle(squeeze(FF2(2,:,:)+1i*FF2(N+2,:,:))).');title('EXC OPTIMIZED SIGNAL');grid on;ylabel('voxels')
 
 %%
 img = zeros(Adj.image_m, Adj.image_n);
