@@ -1,7 +1,14 @@
-function theta = load_pulse_theta(Adjfile, pulsefile, ROI)
+function theta = load_pulse_theta(Adjfile, pulsefile, ROI, scaleFA)
 % Calculate effective theta for a given pulse
 % requires mz blochsim code
 % mz407
+
+arguments
+    Adjfile     string
+    pulsefile   string
+    ROI         logical
+    scaleFA     double  = 1.0
+end
 
 sspulse = true; % for now we only use this for 2D slices
 
@@ -17,7 +24,7 @@ if sspulse
 else
     z = adj.z;
 end
-[Mxy, Mz] = blochSim_CK_3D(totalRF, totalg, dt, adj.b0, ...
+[Mxy, Mz] = blochSim_CK_3D(totalRF*scaleFA, totalg, dt, adj.b0, ...
                            adj.x,adj.y,z, adj.b1, [0;0;1], 1e10, 1e10, 0);
 
 phout = angle(squeeze(Mxy));
